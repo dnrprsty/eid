@@ -54,15 +54,22 @@
         .btn:hover {
             background: #2ecc71;
         }
+        .animation {
+            animation: bounce 1s infinite alternate;
+        }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔥 Minal Aidzin Wal Faidzin! 🔥</h1>
+        <h1 class="animation">🔥 Minal Aidzin Wal Faidzin! 🔥</h1>
         <p>Yo! Mohon maap lahir batin ya bro/sis! 🫶✨</p>
         <button class="btn" onclick="ucapan()">Klik buat vibe Lebaran! 🎉</button>
         <p><a href="#" id="shareBtn" style="color:#27ae60; text-decoration: none; font-weight: bold;">🔗 Bagikan ke temen-temen!</a></p>
@@ -70,7 +77,12 @@
 
     <script>
         function ucapan() {
-            alert('Selamat Idul Fitri! Semoga THR lancar & perut kenyang! 😆🙏');
+            const messages = [
+                "Selamat Idul Fitri! Semoga THR lancar & perut kenyang! 😆🙏",
+                "Lebaran time! Jangan lupa makan ketupat & opor! 🍛✨",
+                "Mohon maaf lahir batin ya! Semoga tahun ini lebih berkah! 💚"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
         }
         
         document.getElementById("shareBtn").addEventListener("click", function() {
