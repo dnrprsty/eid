@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak</title>
+    <meta property="og:title" content="Selamat Idul Fitri!">
+    <meta property="og:description" content="Minal Aidzin Wal Faidzin! Mohon maaf lahir dan batin ya ges ya ">
+    <meta property="og:image" content="https://source.unsplash.com/1600x900/?eid,muslim">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #fafafa;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .header span {
+            font-weight: bold;
+            color: #333;
+        }
+        .post-image {
+            width: 100%;
+            height: 250px;
+            background: url('https://source.unsplash.com/400x400/?eid,muslim') no-repeat center center/cover;
+        }
+        .content {
+            padding: 10px;
+            text-align: left;
+        }
+        .content h1 {
+            font-size: 1.5rem;
+            color: #27ae60;
+            margin: 10px 0;
+        }
+        .content p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+        .actions button:hover {
+            transform: scale(1.2);
+        }
+        .actions button:active {
+            transform: scale(0.9);
+        }
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .popup.show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span>eid_vibes</span>
+            <img src="https://source.unsplash.com/40x40/?person" alt="profile">
+        </div>
+        <div class="post-image"></div>
+        <div class="content">
+            <h1>Maapin guys kalo misalnya gua ada salah</h1>
+            <p>WAJAR MANUSIA BUKAN NABI BOYYY</p>
+        </div>
+        <div class="actions">
+            <button onclick="likePost()">❤️</button>
+            <button onclick="ucapan()">💬</button>
+            <button id="shareBtn">📤</button>
+        </div>
+        <div id="popup" class="popup"></div>
+    </div>
+
+    <script>
+        function showPopup(text) {
+            let popup = document.getElementById("popup");
+            popup.innerHTML = text;
+            popup.classList.add("show");
+            setTimeout(() => { popup.classList.remove("show"); }, 2000);
+        }
+
+        function ucapan() {
+            const messages = [
+                "Gua ada sedikit rezeki nih, tambahin dong biar jadi banyak WKWKW",
+                "info dana kagett",
+                "Sehat Sehat Orang Baik"
+            ];
+            showPopup(messages[Math.floor(Math.random() * messages.length)]);
+        }
+        
+        function likePost() {
+            showPopup("kasi like doang THR kaga");
+        }
+        
+        document.getElementById("shareBtn").addEventListener("click", function() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showPopup("viralin gusy");
+            });
+        });
+    </script>
+</body>
+</html>
